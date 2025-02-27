@@ -55,7 +55,6 @@ function gerarNumeroAleatorio() {
         return gerarNumeroAleatorio();
     }  else {
         numerosSorteados.push(numeroEscolhido);
-        console.log(numerosSorteados);
         return numeroEscolhido;
     }
 }
@@ -66,6 +65,7 @@ function limparCampo() {
 }
 
 function reiniciarJogo() {
+    alert(`Números Sorteados: ${numerosSorteados}`);
     numeroSecreto = gerarNumeroAleatorio();
     limparCampo();
     tentativas = 0;
