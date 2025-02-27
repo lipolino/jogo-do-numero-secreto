@@ -24,20 +24,26 @@ function verificarChute() {
     tentativas++;
     console.log(tentativas);
 
-    if (chute == numeroSecreto) {
-        exibirTextoNaTela("h1", "Parabéns!");
-        exibirTextoNaTela("p", tentativas == 1 ? `Você descobriu o número secreto com ${tentativas} tentativa!` : `Você descobriu o número secreto com ${tentativas} tentativas!`);
-        document.getElementById("reiniciar").removeAttribute("disabled");
-    } else 
-        if (chute > numeroSecreto) {
-            exibirTextoNaTela("h1","Errou!");
-            exibirTextoNaTela("p", "O número é menor");
-            limparCampo();
-    }   else {
-            exibirTextoNaTela("h1","Errou!");
-            exibirTextoNaTela("p", "O número é maior");
-            limparCampo();
+    if (chute > 1000) {
+        alert("Escolha um número entre 1 e 1000.");
+        tentativas--;
     }
+    else
+        if (chute == numeroSecreto) {
+            exibirTextoNaTela("h1", "Parabéns!");
+            exibirTextoNaTela("p", tentativas == 1 ? `Você descobriu o número secreto com ${tentativas} tentativa!` : `Você descobriu o número secreto com ${tentativas} tentativas!`);
+            document.getElementById("reiniciar").removeAttribute("disabled");
+            document.getElementById("chutar").setAttribute("disabled", "");
+        } else 
+            if (chute > numeroSecreto) {
+                exibirTextoNaTela("h1","Errou!");
+                exibirTextoNaTela("p", "O número é menor");
+                limparCampo();
+        }   else {
+                exibirTextoNaTela("h1","Errou!");
+                exibirTextoNaTela("p", "O número é maior");
+                limparCampo();
+        }
     //true ou false no console (Conta no console quantas vezes o chute foi acertado ou errado)
     //console.log(chute == numeroSecreto);
 }
@@ -65,6 +71,7 @@ function limparCampo() {
 }
 
 function reiniciarJogo() {
+    document.getElementById("chutar").removeAttribute("disabled");
     alert(`Números Sorteados: ${numerosSorteados}`);
     numeroSecreto = gerarNumeroAleatorio();
     limparCampo();
