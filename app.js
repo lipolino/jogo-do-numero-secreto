@@ -25,7 +25,7 @@ function verificarChute() {
     console.log(tentativas);
 
     if (chute < 1 || chute > 1000) {
-        alert("Escolha um número entre 1 e 1000.");
+        alert("Número inválido! Escolha um número entre 1 e 1000.");
         tentativas--;
     }
     else
