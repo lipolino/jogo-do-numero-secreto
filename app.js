@@ -37,11 +37,11 @@ function verificarChute() {
         } else 
             if (chute > numeroSecreto) {
                 exibirTextoNaTela("h1","Errou!");
-                exibirTextoNaTela("p", "O número é menor");
+                exibirTextoNaTela("p", `O número é menor que ${chute}`);
                 limparCampo();
         }   else {
                 exibirTextoNaTela("h1","Errou!");
-                exibirTextoNaTela("p", "O número é maior");
+                exibirTextoNaTela("p", `O número é maior ${chute}`);
                 limparCampo();
         }
     //true ou false no console (Conta no console quantas vezes o chute foi acertado ou errado)
