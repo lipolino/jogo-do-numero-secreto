@@ -41,7 +41,7 @@ function verificarChute() {
                 limparCampo();
         }   else {
                 exibirTextoNaTela("h1","Errou!");
-                exibirTextoNaTela("p", `O número é maior ${chute}`);
+                exibirTextoNaTela("p", `O número é maior que ${chute}`);
                 limparCampo();
         }
     //true ou false no console (Conta no console quantas vezes o chute foi acertado ou errado)
