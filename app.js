@@ -3,6 +3,8 @@ let numerosSorteados = [];
 let numeroLimite = 10000;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 0;
+let menorChute = 1;
+let maiorChute = 10000;
 
 //Função com parâmetro (responsive voice consta na linha 7 do index.html - precisa se registrar no responsive voice para obter a API Key e colar no index.html)
 function exibirTextoNaTela(tag, texto) {
@@ -36,16 +38,16 @@ function verificarChute() {
             document.getElementById("chutar").setAttribute("disabled", "");
         } else 
             if (chute > numeroSecreto) {
+                maiorChute = chute;
                 exibirTextoNaTela("h1","Errou!");
-                exibirTextoNaTela("p", `O número é menor que ${chute}`);
+                exibirTextoNaTela("p", `O número está entre ${menorChute} a ${maiorChute}`);
                 limparCampo();
         }   else {
+                menorChute = chute;
                 exibirTextoNaTela("h1","Errou!");
-                exibirTextoNaTela("p", `O número é maior que ${chute}`);
+                exibirTextoNaTela("p", `O número está entre ${menorChute} a ${maiorChute}`);
                 limparCampo();
         }
-    //true ou false no console (Conta no console quantas vezes o chute foi acertado ou errado)
-    //console.log(chute == numeroSecreto);
 }
 
 //Função com retorno ("includes" verifica se o numeroSorteado já está na lista, "push" adiciona item ao final da lista, "pop" remove o último item da lista).
@@ -77,6 +79,8 @@ function reiniciarJogo() {
     numeroSecreto = gerarNumeroAleatorio();
     limparCampo();
     tentativas = 0;
+    menorChute = 1;
+    maiorChute = 10000;
     exibirMensagemInicial();
     console.log(tentativas);
     document.getElementById("reiniciar").setAttribute("disabled", true);
