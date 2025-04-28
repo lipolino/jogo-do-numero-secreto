@@ -1,6 +1,6 @@
 //alert("Manipulando html através do java script");
 let numerosSorteados = [];
-let numeroLimite = 1000;
+let numeroLimite = 10000;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 0;
 
@@ -13,7 +13,7 @@ function exibirTextoNaTela(tag, texto) {
 
 function exibirMensagemInicial() {
     exibirTextoNaTela("h1", "Jogo do número secreto");
-    exibirTextoNaTela("p", "Escolha um número entre 1 e 1000");
+    exibirTextoNaTela("p", "Escolha um número entre 1 e 10000");
 }
 
 exibirMensagemInicial();
@@ -24,8 +24,8 @@ function verificarChute() {
     tentativas++;
     console.log(tentativas);
 
-    if (chute < 1 || chute > 1000) {
-        alert("Número inválido! Escolha um número entre 1 e 1000.");
+    if (chute < 1 || chute > 10000) {
+        alert("Número inválido! Escolha um número entre 1 e 10000.");
         tentativas--;
     }
     else
@@ -52,6 +52,7 @@ function verificarChute() {
 function gerarNumeroAleatorio() {
     let numeroEscolhido = parseInt(Math.random() *numeroLimite + 1);
     let quantidadeElementosLista = numerosSorteados.length;
+    //console.log(numeroEscolhido);
 
     if (quantidadeElementosLista == numeroLimite) {
         numerosSorteados = [];
